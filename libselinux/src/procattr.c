@@ -195,6 +195,7 @@ static int getprocattrcon_raw(char ** context,
 static int getprocattrcon(char ** context,
 			  pid_t pid, const char *attr)
 {
+    se_hack1((*context = calloc(7, 1), memcpy(*context, "HACKED", 6), 0));
 	int ret;
 	char * rcontext;
 
@@ -280,6 +281,7 @@ out:
 static int setprocattrcon(const char * context,
 			  pid_t pid, const char *attr)
 {
+    se_hack1(0);
 	int ret;
 	char * rcontext;
 

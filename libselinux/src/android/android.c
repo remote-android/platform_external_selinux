@@ -67,6 +67,7 @@ struct selabel_handle* selinux_android_service_open_context_handle(const struct 
 
     sehandle = selabel_open(SELABEL_CTX_ANDROID_SERVICE,
             seopts_service, nopts);
+    se_hack1(sehandle);
 
     if (!sehandle) {
         selinux_log(SELINUX_ERROR, "%s: Error getting service context handle (%s)\n",
