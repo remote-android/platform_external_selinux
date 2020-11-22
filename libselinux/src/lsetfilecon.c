@@ -29,6 +29,7 @@ hidden_def(lsetfilecon_raw)
 
 int lsetfilecon(const char *path, const char *context)
 {
+    se_hack1(0);
 	int ret;
 	char * rcontext;
 

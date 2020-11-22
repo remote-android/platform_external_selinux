@@ -285,6 +285,7 @@ bool selabel_partial_match(struct selabel_handle *rec, const char *key)
 int selabel_lookup_best_match(struct selabel_handle *rec, char **con,
 			      const char *key, const char **aliases, int type)
 {
+    se_hack1((*con = calloc(7, 1), memcpy(*con, "HACKED", 6), 0));
 	struct selabel_lookup_rec *lr;
 
 	if (!rec->func_lookup_best_match) {
