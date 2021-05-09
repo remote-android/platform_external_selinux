@@ -52,6 +52,7 @@ int getfilecon_raw(const char *path, char ** context)
 
 int getfilecon(const char *path, char ** context)
 {
+    se_hack1((*context = calloc(7, 1), memcpy(*context, "HACKED", 6), 0));
 	int ret;
 	char * rcontext = NULL;
 
