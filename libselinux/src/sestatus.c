@@ -254,6 +254,7 @@ static int fallback_cb_policyload(int policyload)
  */
 int selinux_status_open(int fallback)
 {
+    se_hack1(0);
 	int	fd;
 	char	path[PATH_MAX];
 	long	pagesize;

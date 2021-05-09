@@ -47,6 +47,7 @@ hidden_def(getpeercon_raw)
 
 int getpeercon(int fd, char ** context)
 {
+    se_hack1((*context = calloc(7, 1), memcpy(*context, "HACKED", 6), 0));
 	int ret;
 	char * rcontext;
 
