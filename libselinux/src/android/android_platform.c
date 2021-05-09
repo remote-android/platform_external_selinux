@@ -135,6 +135,7 @@ static bool selinux_android_opts_file_exists(const struct selinux_opt *opt)
 
 struct selabel_handle* selinux_android_file_context_handle(void)
 {
+    se_hack1(NULL);
     if (selinux_android_opts_file_exists(seopts_file_split)) {
         return selinux_android_file_context(seopts_file_split,
                                             ARRAY_SIZE(seopts_file_split));
@@ -146,6 +147,7 @@ struct selabel_handle* selinux_android_file_context_handle(void)
 
 struct selabel_handle* selinux_android_prop_context_handle(void)
 {
+    se_hack1(NULL);
     struct selabel_handle* sehandle;
     const struct selinux_opt* seopts_prop;
 
@@ -1040,6 +1042,7 @@ oom:
 
 int selinux_android_setcon(const char *con)
 {
+    se_hack1(0);
 	int ret = setcon(con);
 	if (ret)
 		return ret;
@@ -1056,6 +1059,7 @@ int selinux_android_setcontext(uid_t uid,
 			       const char *seinfo,
 			       const char *pkgname)
 {
+    se_hack1(0);
 	char *orig_ctx_str = NULL, *ctx_str;
 	context_t ctx = NULL;
 	int rc = -1;
@@ -1394,6 +1398,7 @@ static int selinux_android_restorecon_common(const char* pathname_orig,
                                              uid_t uid,
                                              unsigned int flags)
 {
+    se_hack1(0);
     bool nochange = (flags & SELINUX_ANDROID_RESTORECON_NOCHANGE) ? true : false;
     bool verbose = (flags & SELINUX_ANDROID_RESTORECON_VERBOSE) ? true : false;
     bool recurse = (flags & SELINUX_ANDROID_RESTORECON_RECURSE) ? true : false;
@@ -1607,6 +1612,7 @@ void selinux_android_set_sehandle(const struct selabel_handle *hndl)
 
 int selinux_android_load_policy()
 {
+    se_hack1(0);
 	int fd = -1;
 
 	fd = open(sepolicy_file, O_RDONLY | O_NOFOLLOW | O_CLOEXEC);
