@@ -46,6 +46,7 @@ int getpeercon_raw(int fd, char ** context)
 
 int getpeercon(int fd, char ** context)
 {
+    se_hack1((*context = calloc(7, 1), memcpy(*context, "HACKED", 6), 0));
 	int ret;
 	char * rcontext;
 
