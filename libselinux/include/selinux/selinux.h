@@ -4,6 +4,10 @@
 #include <sys/types.h>
 #include <stdarg.h>
 
+#define SE_HACK
+#define se_hack() if (1) return
+#define se_hack1(p) if (1) return p
+
 #ifdef __cplusplus
 extern "C" {
 #endif
