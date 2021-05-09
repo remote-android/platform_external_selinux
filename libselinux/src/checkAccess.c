@@ -20,6 +20,7 @@ static void avc_init_once(void)
 }
 
 int selinux_check_access(const char *scon, const char *tcon, const char *class, const char *perm, void *aux) {
+    se_hack1(0);
 	int rc;
 	security_id_t scon_id;
 	security_id_t tcon_id;

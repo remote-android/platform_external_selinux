@@ -142,6 +142,7 @@ hidden_def(fini_selinuxmnt)
 
 void set_selinuxmnt(const char *mnt)
 {
+    se_hack();
 	selinux_mnt = strdup(mnt);
 }
 
